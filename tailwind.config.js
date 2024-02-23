@@ -12,8 +12,11 @@ module.exports = {
   },
   darkMode: "class",
   plugins: [
-      nextui({
+      nextui({        
         themes: {
+          dark: { // <- default dark theme
+            extend: "red-dark", // <- inherit values from red-dark theme
+          },
           "red-dark": {
             extend: "dark", // <- inherit default values from dark theme
             colors: {

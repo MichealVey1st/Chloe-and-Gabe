@@ -1,34 +1,16 @@
+import "./output.css";
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
-import About from './pages/about';
-import Home from './pages/home';
-import {
-  createBrowserRouter,
-  BrowserRouter,
-} from "react-router-dom";
-
-
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <Home />,
-    children: [
-      {
-        path: "about",
-        element: <About />,
-      },
-    ],
-  },
-]);
+import { NextUIProvider } from '@nextui-org/react';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <BrowserRouter router={router}>
-      <main className="red-dark text-#ffffff bg-foreground">
+    <NextUIProvider>
+      <main className="red-dark text-foreground bg-background">
         <App />
       </main>
-    </BrowserRouter>
+    </NextUIProvider>
   </React.StrictMode>
 );

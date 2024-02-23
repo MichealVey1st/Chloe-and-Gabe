@@ -24,6 +24,7 @@
   },
   "dependencies": {
     "@nextui-org/react": "^2.2.9",
-    "framer-motion": "^11.0.5"
+    "framer-motion": "^11.0.5",
+    "next-themes": "^0.2.1"
   }
 }
