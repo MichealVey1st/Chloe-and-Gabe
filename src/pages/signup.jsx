@@ -1,9 +1,9 @@
 import React from "react";
-import {Input} from "@nextui-org/react";
+import {Button, Input} from "@nextui-org/react";
 import {EyeFilledIcon} from "./EyeFilledIcon.jsx";
 import {EyeSlashFilledIcon} from "./EyeSlashFilledIcon.jsx";
 
-export default function Login() {
+export default function Signup() {
   const [value, setValue] = React.useState("");
   const [valuePass, setValuePass] = React.useState("");
 
@@ -60,6 +60,9 @@ export default function Login() {
         color={isInvalidPass ? "danger" : "success"}
         className="max-w-xs"
       />
+      <Button variant="ghost">
+        Submit
+      </Button>
     </div>
   );
 }

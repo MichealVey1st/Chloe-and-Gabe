@@ -26,10 +26,10 @@ export default function Layout() {
         </NavbarContent>
         <NavbarContent justify="end">
           <NavbarItem className="lg:flex">
-            <Link color="primary" href="#">Login</Link>
+            <Link color="primary" href="login">Login</Link>
           </NavbarItem>
           <NavbarItem>
-            <Button as={Link} href="#" color="primary" variant="ghost">
+            <Button as={Link} href="signup" color="primary" variant="ghost">
               Sign Up
             </Button>
           </NavbarItem>
@@ -40,6 +40,7 @@ export default function Layout() {
       </Navbar>
 
       <Outlet />
+      <footer>Created by Chloe & Gabe! :)</footer>
     </div>
   )
 }
