@@ -3,6 +3,8 @@ import { Navbar, NavbarContent, NavbarItem, Link, Button } from "@nextui-org/rea
 import { Outlet } from "react-router-dom";
 import ThemeSwitch from "./ThemeSwitch";
 
+// TODO: Fix ThemeSwitch to actually switch between color themes
+
 export default function Layout() {
   return(
     <div id='navbar'>
@@ -40,7 +42,7 @@ export default function Layout() {
       </Navbar>
 
       <Outlet />
-      <footer>Created by Chloe & Gabe! :)</footer>
+      <footer style={{textAlign: 'center', padding: '25px'}}>Created by Chloe & Gabe! :)</footer>
     </div>
   )
 }

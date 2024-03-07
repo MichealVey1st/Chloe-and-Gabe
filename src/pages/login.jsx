@@ -1,5 +1,5 @@
 import React from "react";
-import {Input} from "@nextui-org/react";
+import {Button, Input} from "@nextui-org/react";
 import {EyeFilledIcon} from "./EyeFilledIcon.jsx";
 import {EyeSlashFilledIcon} from "./EyeSlashFilledIcon.jsx";
 
@@ -28,7 +28,7 @@ export default function Login() {
   const toggleVisibility = () => setIsVisible(!isVisible);
 
   return (
-    <div id="signin">
+    <div id="login" style={{margin: 'auto', width: '25%', border: '3px', padding: '10px'}}>
       <Input
         value={value}
         type="email"
@@ -60,6 +60,9 @@ export default function Login() {
         color={isInvalidPass ? "danger" : "success"}
         className="max-w-xs"
       />
+      <Button variant="ghost">
+        Submit
+      </Button>
     </div>
   );
 }

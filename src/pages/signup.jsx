@@ -28,7 +28,7 @@ export default function Signup() {
   const toggleVisibility = () => setIsVisible(!isVisible);
 
   return (
-    <div id="signin">
+    <div id="signup" style={{margin: 'auto', width: '50%', border: '3px', padding: '10px'}}>
       <Input
         value={value}
         type="email"
@@ -44,7 +44,7 @@ export default function Signup() {
       <Input
         label="Password"
         variant="bordered"
-        placeholder="Enter your password"
+        placeholder="Please make me strong....."
         errorMessage={isInvalidPass && "Please enter a valid password"}
         onValueChange={setValuePass}
         endContent={
