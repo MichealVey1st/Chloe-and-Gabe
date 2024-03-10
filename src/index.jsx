@@ -1,19 +1,38 @@
-import "./output.css";
-import React from 'react';
+import React, { useEffect } from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
 import { NextUIProvider } from '@nextui-org/react';
-
-// TODO: Integrate a wonderful way to change themes based on what the ThemeSwitcher is set to
-// TODO: Create another color pallet to use in themes mainly a light mode and possibly revamp darkmode? Or just use the default theme?
+import { useDarkMode } from 'usehooks-ts';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <NextUIProvider>
-      <main className="red-dark text-foreground bg-background">
-        <App />
-      </main>
-    </NextUIProvider>
-  </React.StrictMode>
-);
+
+function Root() {
+  const { isDarkMode, toggle } = useDarkMode({
+    localStorageKey: 'uniqueThemeKey', 
+  });
+
+  useEffect(() => {
+    const savedTheme = localStorage.getItem('uniqueThemeKey');
+    if (savedTheme) {
+      toggle(savedTheme === 'red-dark');
+    }
+  }, [toggle]);
+
+  useEffect(() => {
+    localStorage.setItem('uniqueThemeKey', isDarkMode ? 'red-dark' : 'light'); 
+  }, [isDarkMode]);
+
+  const theme = isDarkMode ? 'red-dark' : 'light'; 
+
+  return (
+    <React.StrictMode>
+      <NextUIProvider theme={theme}>
+        <main className={`text-foreground bg-background ${theme}`}>
+          <App />
+        </main>
+      </NextUIProvider>
+    </React.StrictMode>
+  );
+}
+
+root.render(<Root />); // Correct rendering using createRoot
