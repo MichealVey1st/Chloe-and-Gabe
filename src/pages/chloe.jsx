@@ -1,3 +1,4 @@
+import { Snippet } from '@nextui-org/react';
 import React from 'react';
 
 // https://www.w3schools.com/react/default.asp
@@ -22,6 +23,13 @@ export default function Chloe() {
  //Wrap the JSX In a div or a fragment
     <div style={{margin: 'auto', width: '50%', border: '3px', padding: '10px'}}>
       <h1>Chloe was here...</h1>
+      <Snippet symbol=" " size="lg" variant="bordered">  
+        <span>{`__   /\\_/\\   `}</span>  
+        <span>{`_ ( o.o )  `}</span>
+        <span>{`__ > ^ <  `}</span>
+        <span>{`-- meow...`}</span>
+
+      </Snippet>
     </div>
   
   );

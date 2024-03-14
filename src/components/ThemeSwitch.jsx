@@ -1,28 +1,41 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Switch } from "@nextui-org/react";
 import { MoonIcon } from "./MoonIcon";
 import { SunIcon } from "./SunIcon";
-import { useDarkMode } from 'usehooks-ts';
 
 export default function ThemeSwitch() {
-  const { isDarkMode, toggle } = useDarkMode()
+  const [theme, setTheme] = useState('light');
 
-  const handleToggle = () => {
-    console.log("Before toggle:", isDarkMode);
-    toggle();
-    console.log("After toggle:", !isDarkMode);
+  // This is called at the initial render running only once. 
+  useEffect(() => {
+    // pulling the theme from localStorage
+    const storedTheme = localStorage.getItem('theme');
+    // if a theme is pulled it checks that it is not a null or undefined then sets the value if that is true
+    if (storedTheme) {
+      setTheme(storedTheme);
+    }
+  }, []);
+
+  // This is called every time the theme changes
+  useEffect(() => {
+    // this sets the theme to be put into storage. In json format because localStorage is json syntax
+    localStorage.setItem('theme', theme);
+  }, [theme]);
+
+  // called when the switch is toggled to state the value of dark mode. Then it sends that value to the setTheme hook to be stored in localStorage
+  const toggleTheme = () => {
+    const newTheme = theme === "light" ? "red-dark" : "light";
+    setTheme(newTheme);
   };
-
-  localStorage.
   
   return (
     <Switch
-      defaultSelected={isDarkMode} // Switch should be 'on' when isDarkMode is true
+      checked={theme === "light"}
       size="lg"
       color="success"
       startContent={<SunIcon />}
       endContent={<MoonIcon />}
-      onChange={handleToggle}
+      onChange={toggleTheme}
     />
   );
 }
