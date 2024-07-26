@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect } from "react";
 import ReactDOM from 'react-dom/client';
 import App from './App';
 import { NextUIProvider } from '@nextui-org/react';
@@ -7,13 +7,12 @@ import { NextUIProvider } from '@nextui-org/react';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 function Root() {
-  const [theme, setTheme] = useState('light');
+  const [theme, setTheme] = useState(null);
 
   useEffect(() => {
     const storedTheme = localStorage.getItem('theme');
-    console.log('Stored Theme:', storedTheme);
     if (storedTheme) {
-      setTheme(storedTheme);
+      setTheme(JSON.parse(storedTheme));
     }
   }, []);
   
